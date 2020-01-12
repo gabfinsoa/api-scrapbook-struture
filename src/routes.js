@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import cors from 'cors';
 
 import UserController from './app/controllers/UserController';
 import AuthController from './app/controllers/AuthController';
@@ -9,12 +10,14 @@ import checkCard from './app/middlewares/checkCard';
 
 const routes = Router();
 
+routes.use(cors());
 routes.get('/', (req, res) => res.json('API-SCRAPBOOK-STRUTURE'));
 routes.post('/users', UserController.store);
 routes.post('/login', AuthController.store);
 
 routes.use(authMiddleware);
 
+routes.get('/test', (req, res) => res.json('Authenticaded'));
 routes.get('/cards', CardController.index);
 routes.get('/cards/:id', checkCard, CardController.show);
 routes.post('/cards', CardController.store);

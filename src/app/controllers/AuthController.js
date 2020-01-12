@@ -14,7 +14,7 @@ class AuthController {
     }
 
     if (!(await user.checkPassword(password))) {
-      return res.status(401).json({ error: 'Password invalid.' });
+      return res.status(401).json({ error: 'Invalid password! Please, try again.' });
     }
 
     const { id, name } = user;
