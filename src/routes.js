@@ -11,8 +11,10 @@ import checkCard from './app/middlewares/checkCard';
 const routes = Router();
 
 routes.use(cors());
-routes.get('/', (req, res) => res.json('API-SCRAPBOOK-STRUTURE'));
+routes.get('/', (req, res) => res.json('API-SCRAPBOOKKK-STRUTURE'));
 routes.post('/users', UserController.store);
+// Teste Update Senha Projeto RJ
+routes.put('/users/:id', UserController.update);
 routes.post('/login', AuthController.store);
 
 routes.use(authMiddleware);
